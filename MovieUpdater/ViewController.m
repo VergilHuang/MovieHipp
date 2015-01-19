@@ -34,8 +34,7 @@ static NSString *MovieFeedUrlStr = @"https://tw.movies.yahoo.com/rss/tpeboxoffic
     self.movieList = [NSMutableArray array];
     self.title = NSLocalizedString(@"Yahoo 電影排行榜", nil);
     self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:0.2 green:0.85 blue:0.9 alpha:0.1];
-    self.navigationController.navigationBar.translucent = YES;
-    
+
     
     
     NSURLRequest *MovieUrlRequest = [NSURLRequest requestWithURL:[NSURL URLWithString:MovieFeedUrlStr]];
