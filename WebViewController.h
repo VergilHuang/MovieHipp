@@ -6,11 +6,11 @@
 //  Copyright (c) 2015年 self. All rights reserved.
 //
 
-#import "ViewController.h"
+#import "RankViewController.h"
 
 @class Movie;
 
-@interface WebViewcontroller : UIViewController
+@interface WebViewController : UIViewController
 
 @property (nonatomic,strong) Movie *movie;
 

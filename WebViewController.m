@@ -10,14 +10,14 @@
 #import "Movie.h"
 #import <Social/Social.h>
 
-@interface WebViewcontroller ()
+@interface WebViewController ()
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *indicator;
 @property (weak, nonatomic) IBOutlet UIWebView *webView;
 - (IBAction)socialAction:(UIBarButtonItem *)sender;
 
 @end
 
-@implementation WebViewcontroller
+@implementation WebViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -60,7 +60,7 @@
         //check if device available for service FB
         if ([SLComposeViewController isAvailableForServiceType:SLServiceTypeFacebook]) {
             SLComposeViewController *social = [[SLComposeViewController alloc] init];
-            [social setInitialText:[NSString stringWithFormat:@"我想跟你分享這個電影：%@",self.movie.movieName]];
+            [social setInitialText:[NSString stringWithFormat:@"I'd LIKE To Share This Movie：%@",self.movie.movieName]];
             [social addURL:self.movie.linkUrl];
             [social addImage:[[UIImage alloc] initWithData:[NSData dataWithContentsOfURL:self.movie.imageUrl]]];
             
@@ -68,7 +68,7 @@
                 NSLog(@"post message success!");
             }];
         }else{
-            UIAlertView *alert =[[UIAlertView alloc] initWithTitle:NSLocalizedString(@"發生錯誤了！", nil) message:NSLocalizedString(@"很抱歉 >_<\n您的裝置無法分享信息到FaceBook", nil) delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            UIAlertView *alert =[[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Erorr！", nil) message:NSLocalizedString(@"Sorry >_<\nYour device not allowed to share message to FaceBook", nil) delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
             [alert show];
         }
     }

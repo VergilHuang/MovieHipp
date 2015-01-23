@@ -6,7 +6,7 @@
 //  Copyright (c) 2015年 self. All rights reserved.
 //
 
-#import "ViewController.h"
+#import "RankViewController.h"
 #import "ParseOperation.h"
 
 #import "Movie.h"
@@ -19,7 +19,7 @@ NSString *kMovieCellIdentifier = @"movieCell";
 
 static NSString *MovieFeedUrlStr = @"https://tw.movies.yahoo.com/rss/tpeboxoffice";
 
-@interface ViewController ()
+@interface RankViewController ()
 
 @property (nonatomic,strong) NSMutableArray *movieList;
 @property (nonatomic,strong) NSOperationQueue *parseQueue;
@@ -27,7 +27,7 @@ static NSString *MovieFeedUrlStr = @"https://tw.movies.yahoo.com/rss/tpeboxoffic
 
 @end
 
-@implementation ViewController
+@implementation RankViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -165,7 +165,7 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
 
     if ([segue.identifier isEqualToString:kGoWebIdentifier]) {
-        WebViewcontroller *webTable = (WebViewcontroller *)[segue.destinationViewController topViewController];
+        WebViewController *webTable = (WebViewController *)[segue.destinationViewController topViewController];
         
         webTable.title = self.movie.movieName;
         webTable.movie = self.movie;

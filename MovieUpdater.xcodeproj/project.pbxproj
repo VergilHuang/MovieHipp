@@ -7,9 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		44998DE01A70E90700849905 /* NewMovieTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 44998DDF1A70E90700849905 /* NewMovieTableViewController.m */; };
+		44998DE31A70E9DE00849905 /* NewMovieTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 44998DE21A70E9DE00849905 /* NewMovieTableViewCell.m */; };
 		44BDBF9D1A5EDB1E00EEEE61 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 44BDBF9C1A5EDB1E00EEEE61 /* main.m */; };
 		44BDBFA01A5EDB1E00EEEE61 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 44BDBF9F1A5EDB1E00EEEE61 /* AppDelegate.m */; };
-		44BDBFA31A5EDB1E00EEEE61 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 44BDBFA21A5EDB1E00EEEE61 /* ViewController.m */; };
+		44BDBFA31A5EDB1E00EEEE61 /* RankViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 44BDBFA21A5EDB1E00EEEE61 /* RankViewController.m */; };
 		44BDBFA61A5EDB1E00EEEE61 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 44BDBFA41A5EDB1E00EEEE61 /* Main.storyboard */; };
 		44BDBFA81A5EDB1E00EEEE61 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 44BDBFA71A5EDB1E00EEEE61 /* Images.xcassets */; };
 		44BDBFAB1A5EDB1E00EEEE61 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 44BDBFA91A5EDB1E00EEEE61 /* LaunchScreen.xib */; };
@@ -18,7 +20,7 @@
 		44BDBFC51A5EDB8300EEEE61 /* MovieTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 44BDBFC41A5EDB8300EEEE61 /* MovieTableViewCell.m */; };
 		44BDBFC81A5EEB9700EEEE61 /* ParseOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 44BDBFC71A5EEB9700EEEE61 /* ParseOperation.m */; };
 		44BDBFCA1A5FC3A600EEEE61 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44BDBFC91A5FC3A600EEEE61 /* CFNetwork.framework */; };
-		44BDC00E1A66206B00EEEE61 /* WebViewcontroller.m in Sources */ = {isa = PBXBuildFile; fileRef = 44BDC00D1A66206B00EEEE61 /* WebViewcontroller.m */; };
+		44BDC00E1A66206B00EEEE61 /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 44BDC00D1A66206B00EEEE61 /* WebViewController.m */; };
 		44BDC04A1A6902D500EEEE61 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44BDC0491A6902D500EEEE61 /* Social.framework */; };
 /* End PBXBuildFile section */
 
@@ -33,30 +35,34 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		44998DDE1A70E90700849905 /* NewMovieTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NewMovieTableViewController.h; path = ../NewMovieTableViewController.h; sourceTree = "<group>"; };
+		44998DDF1A70E90700849905 /* NewMovieTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NewMovieTableViewController.m; path = ../NewMovieTableViewController.m; sourceTree = "<group>"; };
+		44998DE11A70E9DE00849905 /* NewMovieTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NewMovieTableViewCell.h; path = ../NewMovieTableViewCell.h; sourceTree = "<group>"; };
+		44998DE21A70E9DE00849905 /* NewMovieTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NewMovieTableViewCell.m; path = ../NewMovieTableViewCell.m; sourceTree = "<group>"; };
 		44BDBF971A5EDB1E00EEEE61 /* MovieUpdater.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MovieUpdater.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		44BDBF9B1A5EDB1E00EEEE61 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		44BDBF9C1A5EDB1E00EEEE61 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		44BDBF9E1A5EDB1E00EEEE61 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		44BDBF9F1A5EDB1E00EEEE61 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		44BDBFA11A5EDB1E00EEEE61 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		44BDBFA21A5EDB1E00EEEE61 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		44BDBFA11A5EDB1E00EEEE61 /* RankViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = RankViewController.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		44BDBFA21A5EDB1E00EEEE61 /* RankViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = RankViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		44BDBFA51A5EDB1E00EEEE61 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		44BDBFA71A5EDB1E00EEEE61 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		44BDBFAA1A5EDB1E00EEEE61 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		44BDBFB01A5EDB1E00EEEE61 /* MovieUpdaterTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MovieUpdaterTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		44BDBFB51A5EDB1E00EEEE61 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		44BDBFB61A5EDB1E00EEEE61 /* MovieUpdaterTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MovieUpdaterTests.m; sourceTree = "<group>"; };
-		44BDBFC01A5EDB5100EEEE61 /* Movie.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Movie.h; sourceTree = "<group>"; };
-		44BDBFC11A5EDB5100EEEE61 /* Movie.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Movie.m; sourceTree = "<group>"; };
-		44BDBFC31A5EDB8300EEEE61 /* MovieTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MovieTableViewCell.h; sourceTree = "<group>"; };
-		44BDBFC41A5EDB8300EEEE61 /* MovieTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MovieTableViewCell.m; sourceTree = "<group>"; };
+		44BDBFC01A5EDB5100EEEE61 /* Movie.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Movie.h; path = ../Movie.h; sourceTree = "<group>"; };
+		44BDBFC11A5EDB5100EEEE61 /* Movie.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Movie.m; path = ../Movie.m; sourceTree = "<group>"; };
+		44BDBFC31A5EDB8300EEEE61 /* MovieTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MovieTableViewCell.h; path = ../MovieTableViewCell.h; sourceTree = "<group>"; };
+		44BDBFC41A5EDB8300EEEE61 /* MovieTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MovieTableViewCell.m; path = ../MovieTableViewCell.m; sourceTree = "<group>"; };
 		44BDBFC61A5EEB9700EEEE61 /* ParseOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ParseOperation.h; path = ../ParseOperation.h; sourceTree = "<group>"; };
 		44BDBFC71A5EEB9700EEEE61 /* ParseOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ParseOperation.m; path = ../ParseOperation.m; sourceTree = "<group>"; };
 		44BDBFC91A5FC3A600EEEE61 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		44BDBFCB1A601A5800EEEE61 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		44BDBFCD1A601A8F00EEEE61 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		44BDC00C1A66206B00EEEE61 /* WebViewcontroller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewcontroller.h; sourceTree = "<group>"; };
-		44BDC00D1A66206B00EEEE61 /* WebViewcontroller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewcontroller.m; sourceTree = "<group>"; };
+		44BDC00C1A66206B00EEEE61 /* WebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; name = WebViewController.h; path = ../WebViewController.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		44BDC00D1A66206B00EEEE61 /* WebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = WebViewController.m; path = ../WebViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		44BDC0491A6902D500EEEE61 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -83,16 +89,6 @@
 		44BDBF8E1A5EDB1E00EEEE61 = {
 			isa = PBXGroup;
 			children = (
-				44BDC0491A6902D500EEEE61 /* Social.framework */,
-				44BDC00C1A66206B00EEEE61 /* WebViewcontroller.h */,
-				44BDC00D1A66206B00EEEE61 /* WebViewcontroller.m */,
-				44BDBFCD1A601A8F00EEEE61 /* Foundation.framework */,
-				44BDBFCB1A601A5800EEEE61 /* UIKit.framework */,
-				44BDBFC91A5FC3A600EEEE61 /* CFNetwork.framework */,
-				44BDBFC31A5EDB8300EEEE61 /* MovieTableViewCell.h */,
-				44BDBFC41A5EDB8300EEEE61 /* MovieTableViewCell.m */,
-				44BDBFC01A5EDB5100EEEE61 /* Movie.h */,
-				44BDBFC11A5EDB5100EEEE61 /* Movie.m */,
 				44BDBF991A5EDB1E00EEEE61 /* MovieUpdater */,
 				44BDBFB31A5EDB1E00EEEE61 /* MovieUpdaterTests */,
 				44BDBF981A5EDB1E00EEEE61 /* Products */,
@@ -111,12 +107,22 @@
 		44BDBF991A5EDB1E00EEEE61 /* MovieUpdater */ = {
 			isa = PBXGroup;
 			children = (
+				44998DDE1A70E90700849905 /* NewMovieTableViewController.h */,
+				44998DDF1A70E90700849905 /* NewMovieTableViewController.m */,
+				44998DE11A70E9DE00849905 /* NewMovieTableViewCell.h */,
+				44998DE21A70E9DE00849905 /* NewMovieTableViewCell.m */,
+				44BDC00C1A66206B00EEEE61 /* WebViewController.h */,
+				44BDC00D1A66206B00EEEE61 /* WebViewController.m */,
+				44BDBFC31A5EDB8300EEEE61 /* MovieTableViewCell.h */,
+				44BDBFC41A5EDB8300EEEE61 /* MovieTableViewCell.m */,
+				44BDBFC01A5EDB5100EEEE61 /* Movie.h */,
+				44BDBFC11A5EDB5100EEEE61 /* Movie.m */,
 				44BDBF9E1A5EDB1E00EEEE61 /* AppDelegate.h */,
 				44BDBF9F1A5EDB1E00EEEE61 /* AppDelegate.m */,
 				44BDBFC61A5EEB9700EEEE61 /* ParseOperation.h */,
 				44BDBFC71A5EEB9700EEEE61 /* ParseOperation.m */,
-				44BDBFA11A5EDB1E00EEEE61 /* ViewController.h */,
-				44BDBFA21A5EDB1E00EEEE61 /* ViewController.m */,
+				44BDBFA11A5EDB1E00EEEE61 /* RankViewController.h */,
+				44BDBFA21A5EDB1E00EEEE61 /* RankViewController.m */,
 				44BDBFA41A5EDB1E00EEEE61 /* Main.storyboard */,
 				44BDBFA71A5EDB1E00EEEE61 /* Images.xcassets */,
 				44BDBFA91A5EDB1E00EEEE61 /* LaunchScreen.xib */,
@@ -128,6 +134,10 @@
 		44BDBF9A1A5EDB1E00EEEE61 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				44BDC0491A6902D500EEEE61 /* Social.framework */,
+				44BDBFCD1A601A8F00EEEE61 /* Foundation.framework */,
+				44BDBFCB1A601A5800EEEE61 /* UIKit.framework */,
+				44BDBFC91A5FC3A600EEEE61 /* CFNetwork.framework */,
 				44BDBF9B1A5EDB1E00EEEE61 /* Info.plist */,
 				44BDBF9C1A5EDB1E00EEEE61 /* main.m */,
 			);
@@ -251,9 +261,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				44BDBFA31A5EDB1E00EEEE61 /* ViewController.m in Sources */,
+				44BDBFA31A5EDB1E00EEEE61 /* RankViewController.m in Sources */,
+				44998DE01A70E90700849905 /* NewMovieTableViewController.m in Sources */,
+				44998DE31A70E9DE00849905 /* NewMovieTableViewCell.m in Sources */,
 				44BDBFC81A5EEB9700EEEE61 /* ParseOperation.m in Sources */,
-				44BDC00E1A66206B00EEEE61 /* WebViewcontroller.m in Sources */,
+				44BDC00E1A66206B00EEEE61 /* WebViewController.m in Sources */,
 				44BDBFA01A5EDB1E00EEEE61 /* AppDelegate.m in Sources */,
 				44BDBFC21A5EDB5100EEEE61 /* Movie.m in Sources */,
 				44BDBFC51A5EDB8300EEEE61 /* MovieTableViewCell.m in Sources */,

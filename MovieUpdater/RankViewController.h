@@ -11,7 +11,7 @@
 extern NSString *kMovieCellIdentifier;
 
 
-@interface ViewController : UITableViewController
+@interface RankViewController : UITableViewController
 
 
 @end
