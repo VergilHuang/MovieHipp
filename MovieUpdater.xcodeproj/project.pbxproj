@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		44998DE01A70E90700849905 /* NewMovieTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 44998DDF1A70E90700849905 /* NewMovieTableViewController.m */; };
 		44998DE31A70E9DE00849905 /* NewMovieTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 44998DE21A70E9DE00849905 /* NewMovieTableViewCell.m */; };
+		44998F281A7B757E00849905 /* ParseNewOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 44998F271A7B757E00849905 /* ParseNewOperation.m */; };
+		44998F2F1A7E409C00849905 /* TabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 44998F2E1A7E409C00849905 /* TabBarController.m */; };
 		44BDBF9D1A5EDB1E00EEEE61 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 44BDBF9C1A5EDB1E00EEEE61 /* main.m */; };
 		44BDBFA01A5EDB1E00EEEE61 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 44BDBF9F1A5EDB1E00EEEE61 /* AppDelegate.m */; };
 		44BDBFA31A5EDB1E00EEEE61 /* RankViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 44BDBFA21A5EDB1E00EEEE61 /* RankViewController.m */; };
@@ -35,10 +37,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		44998DDE1A70E90700849905 /* NewMovieTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NewMovieTableViewController.h; path = ../NewMovieTableViewController.h; sourceTree = "<group>"; };
-		44998DDF1A70E90700849905 /* NewMovieTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NewMovieTableViewController.m; path = ../NewMovieTableViewController.m; sourceTree = "<group>"; };
-		44998DE11A70E9DE00849905 /* NewMovieTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NewMovieTableViewCell.h; path = ../NewMovieTableViewCell.h; sourceTree = "<group>"; };
-		44998DE21A70E9DE00849905 /* NewMovieTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NewMovieTableViewCell.m; path = ../NewMovieTableViewCell.m; sourceTree = "<group>"; };
+		44998DDE1A70E90700849905 /* NewMovieTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewMovieTableViewController.h; sourceTree = "<group>"; };
+		44998DDF1A70E90700849905 /* NewMovieTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewMovieTableViewController.m; sourceTree = "<group>"; };
+		44998DE11A70E9DE00849905 /* NewMovieTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewMovieTableViewCell.h; sourceTree = "<group>"; };
+		44998DE21A70E9DE00849905 /* NewMovieTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewMovieTableViewCell.m; sourceTree = "<group>"; };
+		44998F261A7B757E00849905 /* ParseNewOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParseNewOperation.h; sourceTree = "<group>"; };
+		44998F271A7B757E00849905 /* ParseNewOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParseNewOperation.m; sourceTree = "<group>"; };
+		44998F2D1A7E409C00849905 /* TabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TabBarController.h; path = ../TabBarController.h; sourceTree = "<group>"; };
+		44998F2E1A7E409C00849905 /* TabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TabBarController.m; path = ../TabBarController.m; sourceTree = "<group>"; };
 		44BDBF971A5EDB1E00EEEE61 /* MovieUpdater.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MovieUpdater.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		44BDBF9B1A5EDB1E00EEEE61 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		44BDBF9C1A5EDB1E00EEEE61 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -86,6 +92,35 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		44998F2B1A7B762F00849905 /* NewMovie */ = {
+			isa = PBXGroup;
+			children = (
+				44998DDE1A70E90700849905 /* NewMovieTableViewController.h */,
+				44998DDF1A70E90700849905 /* NewMovieTableViewController.m */,
+				44998DE11A70E9DE00849905 /* NewMovieTableViewCell.h */,
+				44998DE21A70E9DE00849905 /* NewMovieTableViewCell.m */,
+				44998F261A7B757E00849905 /* ParseNewOperation.h */,
+				44998F271A7B757E00849905 /* ParseNewOperation.m */,
+			);
+			name = NewMovie;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		44998F2C1A7B767D00849905 /* RankingMovie */ = {
+			isa = PBXGroup;
+			children = (
+				44BDBFC61A5EEB9700EEEE61 /* ParseOperation.h */,
+				44BDBFC71A5EEB9700EEEE61 /* ParseOperation.m */,
+				44BDBFA11A5EDB1E00EEEE61 /* RankViewController.h */,
+				44BDBFA21A5EDB1E00EEEE61 /* RankViewController.m */,
+				44BDC00C1A66206B00EEEE61 /* WebViewController.h */,
+				44BDC00D1A66206B00EEEE61 /* WebViewController.m */,
+				44BDBFC31A5EDB8300EEEE61 /* MovieTableViewCell.h */,
+				44BDBFC41A5EDB8300EEEE61 /* MovieTableViewCell.m */,
+			);
+			name = RankingMovie;
+			sourceTree = "<group>";
+		};
 		44BDBF8E1A5EDB1E00EEEE61 = {
 			isa = PBXGroup;
 			children = (
@@ -107,22 +142,14 @@
 		44BDBF991A5EDB1E00EEEE61 /* MovieUpdater */ = {
 			isa = PBXGroup;
 			children = (
-				44998DDE1A70E90700849905 /* NewMovieTableViewController.h */,
-				44998DDF1A70E90700849905 /* NewMovieTableViewController.m */,
-				44998DE11A70E9DE00849905 /* NewMovieTableViewCell.h */,
-				44998DE21A70E9DE00849905 /* NewMovieTableViewCell.m */,
-				44BDC00C1A66206B00EEEE61 /* WebViewController.h */,
-				44BDC00D1A66206B00EEEE61 /* WebViewController.m */,
-				44BDBFC31A5EDB8300EEEE61 /* MovieTableViewCell.h */,
-				44BDBFC41A5EDB8300EEEE61 /* MovieTableViewCell.m */,
 				44BDBFC01A5EDB5100EEEE61 /* Movie.h */,
 				44BDBFC11A5EDB5100EEEE61 /* Movie.m */,
 				44BDBF9E1A5EDB1E00EEEE61 /* AppDelegate.h */,
 				44BDBF9F1A5EDB1E00EEEE61 /* AppDelegate.m */,
-				44BDBFC61A5EEB9700EEEE61 /* ParseOperation.h */,
-				44BDBFC71A5EEB9700EEEE61 /* ParseOperation.m */,
-				44BDBFA11A5EDB1E00EEEE61 /* RankViewController.h */,
-				44BDBFA21A5EDB1E00EEEE61 /* RankViewController.m */,
+				44998F2D1A7E409C00849905 /* TabBarController.h */,
+				44998F2E1A7E409C00849905 /* TabBarController.m */,
+				44998F2B1A7B762F00849905 /* NewMovie */,
+				44998F2C1A7B767D00849905 /* RankingMovie */,
 				44BDBFA41A5EDB1E00EEEE61 /* Main.storyboard */,
 				44BDBFA71A5EDB1E00EEEE61 /* Images.xcassets */,
 				44BDBFA91A5EDB1E00EEEE61 /* LaunchScreen.xib */,
@@ -263,8 +290,10 @@
 			files = (
 				44BDBFA31A5EDB1E00EEEE61 /* RankViewController.m in Sources */,
 				44998DE01A70E90700849905 /* NewMovieTableViewController.m in Sources */,
+				44998F281A7B757E00849905 /* ParseNewOperation.m in Sources */,
 				44998DE31A70E9DE00849905 /* NewMovieTableViewCell.m in Sources */,
 				44BDBFC81A5EEB9700EEEE61 /* ParseOperation.m in Sources */,
+				44998F2F1A7E409C00849905 /* TabBarController.m in Sources */,
 				44BDC00E1A66206B00EEEE61 /* WebViewController.m in Sources */,
 				44BDBFA01A5EDB1E00EEEE61 /* AppDelegate.m in Sources */,
 				44BDBFC21A5EDB5100EEEE61 /* Movie.m in Sources */,

@@ -21,6 +21,8 @@
 
 - (void)configureWithMovie:(Movie *)movie{
     self.movieName.text = [NSString stringWithFormat:@"%@",movie.movieName];
+    self.movieName.shadowColor = [UIColor yellowColor];
+    self.movieName.shadowOffset = CGSizeMake(1, 1);
 
     self.movieDescription.text = movie.descriptions;
     

@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Movie.h"
 
 @interface NewMovieTableViewCell : UITableViewCell
+
+- (void)configureWithMovie:(Movie *)movie;
 
 @end

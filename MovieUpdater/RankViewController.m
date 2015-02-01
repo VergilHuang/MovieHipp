@@ -8,6 +8,7 @@
 
 #import "RankViewController.h"
 #import "ParseOperation.h"
+#import "AppDelegate.h"
 
 #import "Movie.h"
 #import "MovieTableViewCell.h"
@@ -17,14 +18,13 @@
 
 NSString *kMovieCellIdentifier = @"movieCell";
 
-static NSString *MovieFeedUrlStr = @"https://tw.movies.yahoo.com/rss/tpeboxoffice";
 
 @interface RankViewController ()
 
 @property (nonatomic,strong) NSMutableArray *movieList;
-@property (nonatomic,strong) NSOperationQueue *parseQueue;
 @property (nonatomic,strong) Movie *movie;
 
+- (void)handleError:(NSError *)error;
 @end
 
 @implementation RankViewController
@@ -32,46 +32,9 @@ static NSString *MovieFeedUrlStr = @"https://tw.movies.yahoo.com/rss/tpeboxoffic
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.movieList = [NSMutableArray array];
-    self.title = NSLocalizedString(@"Yahoo 電影排行榜", nil);
-    self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:0.2 green:0.85 blue:0.9 alpha:0.1];
-    self.navigationController.navigationBar.translucent = YES;
+//    self.navigationController.navigationBar.translucent = YES;
+    self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:(CGFloat)1 green:(CGFloat)130/255 blue:(CGFloat)1/255 alpha:1];
     
-    
-    
-    NSURLRequest *MovieUrlRequest = [NSURLRequest requestWithURL:[NSURL URLWithString:MovieFeedUrlStr]];
-    
-    //send request to web server
-    [NSURLConnection sendAsynchronousRequest:MovieUrlRequest queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
-        
-        [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
-        
-        //if connectionError encounted
-        if (connectionError != nil) {
-            
-            [self handleError:connectionError];
-            
-        }else{
-            
-            NSHTTPURLResponse *HTTPURLResponse = (NSHTTPURLResponse *)response;
-            if (([HTTPURLResponse statusCode]/100) == 2 && [[response MIMEType] isEqualToString:@"application/rss+xml"]) {
-                ParseOperation *parseOperation =[[ParseOperation alloc] initWithData:data];
-                
-                [self.parseQueue addOperation:parseOperation];
-            }else{
-                NSString *errorStr = NSLocalizedString(@"HTTP Error", @"HTTP 錯誤訊息");
-                NSDictionary *userInfoDir = @{NSLocalizedDescriptionKey : errorStr};
-                NSError *reportError = [NSError errorWithDomain:errorStr code:[HTTPURLResponse statusCode] userInfo:userInfoDir];
-                
-                [self handleError:reportError];
-            }
-        }
-    }];
-    
-    
-    [UIApplication sharedApplication].networkActivityIndicatorVisible=YES;
-    
-    self.parseQueue = [NSOperationQueue new];
-    // 需要增加觀察者在下面
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(AddMovies:) name:kAddMovieNotificationName object:nil];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(MovieError:) name:kMovieErrorNotificationName object:nil];
@@ -79,6 +42,7 @@ static NSString *MovieFeedUrlStr = @"https://tw.movies.yahoo.com/rss/tpeboxoffic
 }
 
 - (void)dealloc{
+
     [[NSNotificationCenter defaultCenter] removeObserver:self
                                                     name:kAddMovieNotificationName
                                                   object:nil];

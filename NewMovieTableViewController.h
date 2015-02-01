@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 
 static NSString *newMovieCell = @"newMovieCell";
+static NSString *newMovieFeedUrl = @"https://tw.movies.yahoo.com/rss/upcoming";
 
 @interface NewMovieTableViewController : UITableViewController
 

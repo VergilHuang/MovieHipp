@@ -10,9 +10,12 @@
 
 extern NSString *kMovieCellIdentifier;
 
+//feed url
+static NSString *MovieFeedUrlStr = @"https://tw.movies.yahoo.com/rss/tpeboxoffice";
 
 @interface RankViewController : UITableViewController
 
+- (void)handleError:(NSError *)error;
 
 @end
 

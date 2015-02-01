@@ -1,20 +1,20 @@
 //
-//  ParseOperation.m
+//  ParseNewOperation.m
 //  MovieUpdater
 //
-//  Created by 黃彥竣 on 2015/1/9.
+//  Created by 黃彥竣 on 2015/1/30.
 //  Copyright (c) 2015年 self. All rights reserved.
 //
 
-#import "ParseOperation.h"
+#import "ParseNewOperation.h"
 #import "Movie.h"
 
 #pragma mark - notification constants
 
-NSString *kAddMovieNotificationName = @"MovieNotificationName";
-NSString *kMovieResultsKey = @"MovieResultskey";
-NSString *kMovieErrorNotificationName = @"MovieErrorNotificationName";
-NSString *kMovieMessageErrorKey = @"MovieMessageErrorKey";
+NSString *kAddMovieNotificationName2 = @"MovieNotificationName2";
+NSString *kMovieResultsKey2 = @"MovieResultskey2";
+NSString *kMovieErrorNotificationName2 = @"MovieErrorNotificationName2";
+NSString *kMovieMessageErrorKey2 = @"MovieMessageErrorKey2";
 
 #pragma mark - parse constants
 
@@ -30,14 +30,14 @@ static NSString *kElementNamePubdate = @"description";
 
 
 
-@interface ParseOperation ()<NSXMLParserDelegate>
+@interface ParseNewOperation ()<NSXMLParserDelegate>
 @property (nonatomic,strong) Movie *currentMovieObject;
 @property (nonatomic,strong) NSMutableArray *currentParseBitchArray;
 @property (nonatomic,strong) NSMutableString *currentParseCharacterDataStr;
 
 @end
 
-@implementation ParseOperation{
+@implementation ParseNewOperation{
     BOOL accumulatingParsedCharacterData;
     BOOL didAbortParsing;
     NSInteger parseMovieCounter;
@@ -46,16 +46,16 @@ static NSString *kElementNamePubdate = @"description";
 - (id)initWithData:(NSData *)ParseData{
     self = [super init];
     if (self) {
-    _movieData = [ParseData copy];
-    _currentParseBitchArray = [[NSMutableArray alloc] init];
-    _currentParseCharacterDataStr = [[NSMutableString alloc] init];
+        _movieData = [ParseData copy];
+        _currentParseBitchArray = [[NSMutableArray alloc] init];
+        _currentParseCharacterDataStr = [[NSMutableString alloc] init];
     }
     return self;
 }
 
 - (void)addMovieToList:(NSArray *)movies{
     assert([NSThread mainThread]);
-    [[NSNotificationCenter defaultCenter] postNotificationName:kAddMovieNotificationName object:self userInfo:@{kMovieResultsKey : movies}];
+    [[NSNotificationCenter defaultCenter] postNotificationName:kAddMovieNotificationName2 object:self userInfo:@{kMovieResultsKey2 : movies}];
     
 }
 
@@ -65,7 +65,7 @@ static NSString *kElementNamePubdate = @"description";
 #pragma mark - main function
 
 - (void)main{
-
+    
     NSXMLParser *parser = [[NSXMLParser alloc] initWithData:self.movieData];
     
     parser.delegate = self;
@@ -98,8 +98,8 @@ didStartElement:(NSString *)elementName
     if ([elementName isEqualToString:kElementNameTitle] || [elementName isEqualToString:kElementNamelink] || [elementName isEqualToString:kElementNamePubdate]){
         accumulatingParsedCharacterData = YES;
         
-                [self.currentParseCharacterDataStr setString:@""];
-
+        [self.currentParseCharacterDataStr setString:@""];
+        
     }
 }
 
@@ -107,9 +107,9 @@ didStartElement:(NSString *)elementName
  didEndElement:(NSString *)elementName
   namespaceURI:(NSString *)namespaceURI
  qualifiedName:(NSString *)qName{
-
+    
     if ([elementName isEqualToString:kElementNameItem]) {
-                
+        
         [self.currentParseBitchArray addObject:self.currentMovieObject];
         parseMovieCounter ++;
         if (self.currentParseBitchArray.count >= kSizeOfMoiveBatch) {
@@ -119,12 +119,12 @@ didStartElement:(NSString *)elementName
     }
     if ([elementName isEqualToString:kElementNameTitle]){
         
-        if ([self.currentParseCharacterDataStr isEqualToString:@"Yahoo!奇摩電影-台北票房榜"]) {
-            NSLog(@"title 輸出正常");
+        if ([self.currentParseCharacterDataStr isEqualToString:@"Yahoo!奇摩電影-預告片榜"]) {
+            NSLog(@"title 輸出正常2");
         }else{
             self.currentMovieObject.movieName = [self.currentParseCharacterDataStr copy];
             
-             }
+        }
     }
     if ([elementName isEqualToString:kElementNamelink]){
         NSScanner *scanner = [NSScanner scannerWithString:self.currentParseCharacterDataStr];
@@ -137,16 +137,16 @@ didStartElement:(NSString *)elementName
         }
     }
     if ([elementName isEqualToString:kElementNamePubdate]){
-
+        
         self.currentMovieObject.descriptions = [self.currentParseCharacterDataStr copy];
     }
-
+    
     accumulatingParsedCharacterData = NO;
 }
 
 - (void)parser:(NSXMLParser *)parser
 foundCharacters:(NSString *)string{
-
+    
     if (accumulatingParsedCharacterData) {
         [self.currentParseCharacterDataStr appendString:string];
     }
@@ -154,7 +154,7 @@ foundCharacters:(NSString *)string{
 
 - (void)handleMovieError:(NSError *)parseError{
     assert([NSThread mainThread]);
-    [[NSNotificationCenter defaultCenter] postNotificationName:kMovieErrorNotificationName object:self userInfo:@{kMovieMessageErrorKey : parseError}];
+    [[NSNotificationCenter defaultCenter] postNotificationName:kMovieErrorNotificationName2 object:self userInfo:@{kMovieMessageErrorKey2 : parseError}];
 }
 
 - (void)parser:(NSXMLParser *)parser
@@ -167,3 +167,4 @@ parseErrorOccurred:(NSError *)parseError{
 
 
 @end
+

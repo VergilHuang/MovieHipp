@@ -8,7 +8,30 @@
 
 #import "NewMovieTableViewCell.h"
 
+@interface NewMovieTableViewCell ()
+@property (weak, nonatomic) IBOutlet UIImageView *moviePicture;
+@property (weak, nonatomic) IBOutlet UILabel *movieName;
+@property (weak, nonatomic) IBOutlet UITextView *movieDescription;
+
+
+
+@end
+
+
 @implementation NewMovieTableViewCell
+
+- (void)configureWithMovie:(Movie *)movie{
+    self.movieName.text = [NSString stringWithFormat:@"%@",movie.movieName];
+    self.movieName.shadowColor = [UIColor cyanColor];
+    self.movieName.shadowOffset = CGSizeMake(1, 1);
+    
+    self.movieDescription.text = movie.descriptions;
+    
+    UIImage *imageurl = [[UIImage alloc] initWithData:[NSData dataWithContentsOfURL:movie.imageUrl options:NSDataReadingMappedIfSafe error:nil]];
+    self.moviePicture.image = imageurl;
+
+
+}
 
 - (void)awakeFromNib {
     // Initialization code
