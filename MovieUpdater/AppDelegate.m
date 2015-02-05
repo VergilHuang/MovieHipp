@@ -60,7 +60,7 @@
     self.parseQueue = [NSOperationQueue new];
     // 需要增加觀察者在下面
 
-    sleep(1);
+    sleep(0);
     
     return YES;
 }

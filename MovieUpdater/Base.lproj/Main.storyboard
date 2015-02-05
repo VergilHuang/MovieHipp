@@ -14,6 +14,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="sectionIndexBackgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="movieCell" rowHeight="155" id="w1f-uI-XeB" customClass="MovieTableViewCell">
                                 <autoresizingMask key="autoresizingMask"/>
@@ -74,6 +75,7 @@
                                         <constraint firstItem="MID-2M-LOq" firstAttribute="leading" secondItem="iOv-0L-TrL" secondAttribute="trailing" constant="12" id="ktB-Ff-oAR"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <outlet property="movieDescription" destination="4xS-jj-E6a" id="Viu-nU-yJx"/>
                                     <outlet property="movieName" destination="MID-2M-LOq" id="70b-pA-QNy"/>
@@ -87,7 +89,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Top Box Office" id="wiE-z6-6iL">
-                        <barButtonItem key="rightBarButtonItem" systemItem="search" id="gAh-ru-aPd">
+                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="compose" id="gAh-ru-aPd">
                             <color key="tintColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                         </barButtonItem>
                     </navigationItem>
@@ -139,12 +141,11 @@
                                                 <constraint firstAttribute="height" constant="155" id="csV-Yy-Cn4"/>
                                             </constraints>
                                         </imageView>
-                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" indicatorStyle="white" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4ra-4F-5Ro">
+                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" indicatorStyle="white" editable="NO" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4ra-4F-5Ro">
                                             <rect key="frame" x="117" y="57" width="198" height="84"/>
                                             <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                             <attributedString key="attributedText">
-                                                <fragment>
-                                                    <string key="content">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                                <fragment content="description">
                                                     <attributes>
                                                         <color key="NSColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                         <font key="NSFont" size="15" name="Helvetica"/>
@@ -171,7 +172,6 @@
                                     <outlet property="movieDescription" destination="4ra-4F-5Ro" id="da1-sZ-Zje"/>
                                     <outlet property="movieName" destination="D3l-VF-fkw" id="PJK-D2-BXS"/>
                                     <outlet property="moviePicture" destination="PYH-Pv-9RF" id="6PG-la-TVp"/>
-                                    <segue destination="Q52-QR-Moa" kind="show" id="EQi-0S-IPI"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -182,29 +182,13 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="New Movies" id="eH0-sx-Brm"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <segue destination="t7U-Xd-Gqw" kind="show" identifier="goToWeb" id="aAp-yJ-Nvg"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xRO-5Y-yZQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="684" y="988"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="ZgA-Fl-VGy">
-            <objects>
-                <viewController id="Q52-QR-Moa" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="eRm-yf-a8J"/>
-                        <viewControllerLayoutGuide type="bottom" id="qkW-dU-Eh9"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="cOP-pf-7mh">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Rdw-Ak-Ku8" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1118" y="992"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="xip-cL-hg0">
@@ -334,4 +318,7 @@
             <point key="canvasLocation" x="1118" y="328"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="aAp-yJ-Nvg"/>
+    </inferredMetricsTieBreakers>
 </document>

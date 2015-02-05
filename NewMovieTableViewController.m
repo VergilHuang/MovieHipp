@@ -8,10 +8,13 @@
 
 #import "NewMovieTableViewController.h"
 #import "NewMovieTableViewCell.h"
+#import "WebViewController.h"
 
 #import "RankViewController.h"
 #import "ParseNewOperation.h"
 #import "Movie.h"
+
+static NSString *kGoToWebIdentifier =@"goToWeb";
 
 @interface NewMovieTableViewController ()<NSXMLParserDelegate>
 
@@ -98,7 +101,6 @@
 #pragma mark - addMovieToList Method
 
 - (void)addMovieToList:(NSArray *)movies{
-    NSLog(@"%@",movies);
     NSUInteger startingRow = [self.movieList count];
     NSUInteger MoviesCount = [movies count];
     NSMutableArray *movieArray = [[NSMutableArray alloc] initWithCapacity:MoviesCount];
@@ -123,7 +125,6 @@
 #pragma mark - Table view data source
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    NSLog(@"%lu",(unsigned long)self.movieList.count);
     return self.movieList.count;
 }
 
@@ -139,8 +140,20 @@
 
 - (void)tableView:(UITableView *)tableView
 didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    
+self.movie = (Movie *)self.movieList[indexPath.row];
+
+[self performSegueWithIdentifier:kGoToWebIdentifier sender:indexPath];
+[tableView deselectRowAtIndexPath:indexPath animated:YES];
+
 }
 
-
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    
+    if ([segue.identifier isEqualToString:kGoToWebIdentifier]) {
+        WebViewController *webTable = (WebViewController *)[segue.destinationViewController topViewController];
+        
+        webTable.title = self.movie.movieName;
+        webTable.movie = self.movie;
+    }
+}
 @end

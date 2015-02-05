@@ -19,26 +19,72 @@
 NSString *kMovieCellIdentifier = @"movieCell";
 
 
-@interface RankViewController ()
+@interface RankViewController ()<UISearchResultsUpdating,UISearchBarDelegate>
 
 @property (nonatomic,strong) NSMutableArray *movieList;
 @property (nonatomic,strong) Movie *movie;
+@property (nonatomic,strong) NSMutableArray *searchList;
+
 
 - (void)handleError:(NSError *)error;
 @end
 
-@implementation RankViewController
+@implementation RankViewController{
+    Movie *tempMovie;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.movieList = [NSMutableArray array];
-//    self.navigationController.navigationBar.translucent = YES;
+    tempMovie = [Movie new];
+    
+    //change color of text on the navigationbar
+    NSDictionary *dic = [NSDictionary dictionaryWithObject:[UIColor whiteColor] forKey:NSForegroundColorAttributeName];
+    self.navigationController.navigationBar.titleTextAttributes = dic;
+
+
+    //View apperence set up
     self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:(CGFloat)1 green:(CGFloat)130/255 blue:(CGFloat)1/255 alpha:1];
     
+    
+    //notification receive
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(AddMovies:) name:kAddMovieNotificationName object:nil];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(MovieError:) name:kMovieErrorNotificationName object:nil];
     
+    [self configureSearchBar];
+
+}
+
+- (void)viewWillAppear:(BOOL)animated{
+    self.searchController.searchBar.hidden = NO;
+//    [self configureSearchBar];
+    //reset the searchResult list.
+    if ([self.searchController.searchBar isFirstResponder] == NO ) {
+        self.searchList = nil;
+    }
+}
+
+
+- (void)configureSearchBar{
+    self.searchController = [[UISearchController alloc] initWithSearchResultsController:nil];
+    self.searchController.searchResultsUpdater = self;
+    self.searchController.searchBar.delegate = self;
+    self.searchController.dimsBackgroundDuringPresentation = NO;
+    self.searchController.definesPresentationContext = YES;
+    self.searchController.searchBar.placeholder = @"請輸入電影名稱關鍵字";
+    self.searchController.searchBar.barStyle = UIBarStyleBlackTranslucent;
+    self.searchController.searchBar.searchBarStyle = UISearchBarStyleDefault;
+
+
+    //set up searchBar height
+    CGRect rect = self.searchController.searchBar.frame;
+    rect.size.height = 44.0;
+    self.searchController.searchBar.frame = rect;
+    
+
+    self.tableView.tableHeaderView = self.searchController.searchBar;
+
 }
 
 - (void)dealloc{
@@ -50,6 +96,7 @@ NSString *kMovieCellIdentifier = @"movieCell";
                                                     name:kMovieErrorNotificationName
                                                   object:nil];
 }
+
 
 - (void)handleError:(NSError *)error{
     NSString *errorDescreption = [error localizedDescription];
@@ -102,14 +149,25 @@ NSString *kMovieCellIdentifier = @"movieCell";
 - (UITableViewCell *)tableView:(UITableView *)tableView
          cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     MovieTableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:kMovieCellIdentifier];
+    if (cell == nil) {
+        cell = [[MovieTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:kMovieCellIdentifier];
+    }
+    if (self.searchList != nil) {
+        Movie *movie = (Movie *)self.searchList[indexPath.row];
+        [cell configureWithMovie:movie];
+    }else{
     Movie *movie = (Movie *)(self.movieList)[indexPath.row];
     [cell configureWithMovie:movie];
-    
+    }
     return cell;
     
 }
+
 - (NSInteger)tableView:(UITableView *)tableView
  numberOfRowsInSection:(NSInteger)section{
+    if (self.searchList != nil) {
+        return self.searchList.count;
+    }
     return self.movieList.count;
 }
 
@@ -120,10 +178,24 @@ static NSString *kGoWebIdentifier = @"goWeb";
 
 - (void)tableView:(UITableView *)tableView
 didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    if (self.searchList != nil) {
+        self.movie = (Movie *)self.searchList[indexPath.row];
+    }else{
     self.movie = (Movie *)self.movieList[indexPath.row];
+    }
     [self performSegueWithIdentifier:kGoWebIdentifier sender:indexPath];
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    [self hideSearchBar];
+}
 
+- (void)hideSearchBar{
+    self.searchController.searchBar.text = @"";
+//    self.searchController.searchBar
+    [self.searchController.searchBar resignFirstResponder];
+    self.searchController.active = NO;
+    self.searchController.searchBar.hidden = YES;
+    
 }
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
@@ -135,5 +207,29 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
         webTable.movie = self.movie;
     }
 }
+
+#pragma mark - UISearchResultsUpdating
+- (void)updateSearchResultsForSearchController:(UISearchController *)searchController{
+    NSString *searchString = searchController.searchBar.text;
+    if (self.searchList == nil) {
+        self.searchList = [NSMutableArray array];
+    }
+    if ([searchController isActive]) {
+        if (searchString.length > 0) {
+            for (NSUInteger i = 0; i < self.movieList.count; i++) {
+                tempMovie = (Movie *)self.movieList[i];
+                if ([tempMovie.movieName containsString:searchString]) {
+                    [self.searchList addObject:tempMovie];
+                }
+            }
+        }else{
+            self.searchList = nil;
+        }
+    }else{
+        self.searchList = nil;
+    }
+    [self.tableView reloadData];
+}
+
 
 @end

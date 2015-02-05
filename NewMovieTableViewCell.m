@@ -13,8 +13,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *movieName;
 @property (weak, nonatomic) IBOutlet UITextView *movieDescription;
 
-
-
 @end
 
 

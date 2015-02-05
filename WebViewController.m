@@ -37,13 +37,18 @@
     [self.webView sizeToFit];
     [self.webView loadRequest:request];
     }
+    
 }
 
 - (void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:YES];
-    
+    [self.navigationController setNavigationBarHidden:NO];
+
     [self.indicator stopAnimating];
 }
+
+
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

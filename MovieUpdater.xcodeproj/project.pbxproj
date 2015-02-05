@@ -11,6 +11,8 @@
 		44998DE31A70E9DE00849905 /* NewMovieTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 44998DE21A70E9DE00849905 /* NewMovieTableViewCell.m */; };
 		44998F281A7B757E00849905 /* ParseNewOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 44998F271A7B757E00849905 /* ParseNewOperation.m */; };
 		44998F2F1A7E409C00849905 /* TabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 44998F2E1A7E409C00849905 /* TabBarController.m */; };
+		44B596CC1A829FF700814BB8 /* launch.png in Resources */ = {isa = PBXBuildFile; fileRef = 44B596CA1A829FF700814BB8 /* launch.png */; };
+		44B596CD1A829FF700814BB8 /* launch@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 44B596CB1A829FF700814BB8 /* launch@2x.png */; };
 		44BDBF9D1A5EDB1E00EEEE61 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 44BDBF9C1A5EDB1E00EEEE61 /* main.m */; };
 		44BDBFA01A5EDB1E00EEEE61 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 44BDBF9F1A5EDB1E00EEEE61 /* AppDelegate.m */; };
 		44BDBFA31A5EDB1E00EEEE61 /* RankViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 44BDBFA21A5EDB1E00EEEE61 /* RankViewController.m */; };
@@ -45,6 +47,9 @@
 		44998F271A7B757E00849905 /* ParseNewOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParseNewOperation.m; sourceTree = "<group>"; };
 		44998F2D1A7E409C00849905 /* TabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TabBarController.h; path = ../TabBarController.h; sourceTree = "<group>"; };
 		44998F2E1A7E409C00849905 /* TabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TabBarController.m; path = ../TabBarController.m; sourceTree = "<group>"; };
+		44B596C81A829BA000814BB8 /* 主頁-250dpi.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "主頁-250dpi.jpg"; path = "../../../Desktop/主頁-250dpi.jpg"; sourceTree = "<group>"; };
+		44B596CA1A829FF700814BB8 /* launch.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = launch.png; sourceTree = "<group>"; };
+		44B596CB1A829FF700814BB8 /* launch@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "launch@2x.png"; sourceTree = "<group>"; };
 		44BDBF971A5EDB1E00EEEE61 /* MovieUpdater.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MovieUpdater.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		44BDBF9B1A5EDB1E00EEEE61 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		44BDBF9C1A5EDB1E00EEEE61 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -113,10 +118,10 @@
 				44BDBFC71A5EEB9700EEEE61 /* ParseOperation.m */,
 				44BDBFA11A5EDB1E00EEEE61 /* RankViewController.h */,
 				44BDBFA21A5EDB1E00EEEE61 /* RankViewController.m */,
-				44BDC00C1A66206B00EEEE61 /* WebViewController.h */,
-				44BDC00D1A66206B00EEEE61 /* WebViewController.m */,
 				44BDBFC31A5EDB8300EEEE61 /* MovieTableViewCell.h */,
 				44BDBFC41A5EDB8300EEEE61 /* MovieTableViewCell.m */,
+				44B596CA1A829FF700814BB8 /* launch.png */,
+				44B596CB1A829FF700814BB8 /* launch@2x.png */,
 			);
 			name = RankingMovie;
 			sourceTree = "<group>";
@@ -124,6 +129,7 @@
 		44BDBF8E1A5EDB1E00EEEE61 = {
 			isa = PBXGroup;
 			children = (
+				44B596C81A829BA000814BB8 /* 主頁-250dpi.jpg */,
 				44BDBF991A5EDB1E00EEEE61 /* MovieUpdater */,
 				44BDBFB31A5EDB1E00EEEE61 /* MovieUpdaterTests */,
 				44BDBF981A5EDB1E00EEEE61 /* Products */,
@@ -148,6 +154,8 @@
 				44BDBF9F1A5EDB1E00EEEE61 /* AppDelegate.m */,
 				44998F2D1A7E409C00849905 /* TabBarController.h */,
 				44998F2E1A7E409C00849905 /* TabBarController.m */,
+				44BDC00C1A66206B00EEEE61 /* WebViewController.h */,
+				44BDC00D1A66206B00EEEE61 /* WebViewController.m */,
 				44998F2B1A7B762F00849905 /* NewMovie */,
 				44998F2C1A7B767D00849905 /* RankingMovie */,
 				44BDBFA41A5EDB1E00EEEE61 /* Main.storyboard */,
@@ -269,7 +277,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				44BDBFA61A5EDB1E00EEEE61 /* Main.storyboard in Resources */,
+				44B596CC1A829FF700814BB8 /* launch.png in Resources */,
 				44BDBFAB1A5EDB1E00EEEE61 /* LaunchScreen.xib in Resources */,
+				44B596CD1A829FF700814BB8 /* launch@2x.png in Resources */,
 				44BDBFA81A5EDB1E00EEEE61 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
