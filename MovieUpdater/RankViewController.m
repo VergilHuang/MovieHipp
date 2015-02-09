@@ -17,6 +17,7 @@
 #import <CFNetwork/CFNetwork.h>
 
 NSString *kMovieCellIdentifier = @"movieCell";
+NSString *kErrorHappenedNotificationName = @"error happend";
 
 
 @interface RankViewController ()<UISearchResultsUpdating,UISearchBarDelegate>
@@ -24,6 +25,9 @@ NSString *kMovieCellIdentifier = @"movieCell";
 @property (nonatomic,strong) NSMutableArray *movieList;
 @property (nonatomic,strong) Movie *movie;
 @property (nonatomic,strong) NSMutableArray *searchList;
+@property (nonatomic,strong) NSString *errorString;
+@property (nonatomic,strong) NSOperationQueue *parseQueue;
+
 
 
 - (void)handleError:(NSError *)error;
@@ -37,6 +41,8 @@ NSString *kMovieCellIdentifier = @"movieCell";
     [super viewDidLoad];
     self.movieList = [NSMutableArray array];
     tempMovie = [Movie new];
+    
+    [self sendRequestToServer];
     
     //change color of text on the navigationbar
     NSDictionary *dic = [NSDictionary dictionaryWithObject:[UIColor whiteColor] forKey:NSForegroundColorAttributeName];
@@ -52,17 +58,25 @@ NSString *kMovieCellIdentifier = @"movieCell";
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(MovieError:) name:kMovieErrorNotificationName object:nil];
     
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(createRedoButton) name:kErrorHappenedNotificationName object:nil];
+
     [self configureSearchBar];
 
 }
 
 - (void)viewWillAppear:(BOOL)animated{
     self.searchController.searchBar.hidden = NO;
-//    [self configureSearchBar];
     //reset the searchResult list.
     if ([self.searchController.searchBar isFirstResponder] == NO ) {
         self.searchList = nil;
     }
+}
+
+- (void)createRedoButton{
+    //create a button item to reload the page;
+    UIBarButtonItem *redo = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRedo target:self action:@selector(sendRequestToServer)];
+    self.navigationItem.leftBarButtonItem = redo;
+    
 }
 
 
@@ -86,6 +100,43 @@ NSString *kMovieCellIdentifier = @"movieCell";
     self.tableView.tableHeaderView = self.searchController.searchBar;
 
 }
+
+- (void)sendRequestToServer{
+    NSURLRequest *MovieUrlRequest = [NSURLRequest requestWithURL:[NSURL URLWithString:MovieFeedUrlStr]];
+    
+    //rankingMovieList request
+    
+    [NSURLConnection sendAsynchronousRequest:MovieUrlRequest queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
+        
+        [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+        
+        //if connectionError encounted
+        if (connectionError != nil) {
+            [[NSNotificationCenter defaultCenter] postNotificationName:kErrorHappenedNotificationName object:nil];
+            [self handleError:connectionError];
+            
+        }else{
+            [self.navigationItem setLeftBarButtonItem:nil];
+            NSHTTPURLResponse *HTTPURLResponse = (NSHTTPURLResponse *)response;
+            if (([HTTPURLResponse statusCode]/100) == 2 && [[response MIMEType] isEqualToString:@"application/rss+xml"]) {
+                ParseOperation *parseOperation =[[ParseOperation alloc] initWithData:data];
+                
+                [self.parseQueue addOperation:parseOperation];
+            }else{
+                NSString *errorStr = NSLocalizedString(@"HTTP Error", @"HTTP 錯誤訊息");
+                NSDictionary *userInfoDir = @{NSLocalizedDescriptionKey : errorStr};
+                NSError *reportError = [NSError errorWithDomain:errorStr code:[HTTPURLResponse statusCode] userInfo:userInfoDir];
+                
+                [self handleError:reportError];
+            }
+        }
+    }];
+    
+    [UIApplication sharedApplication].networkActivityIndicatorVisible=YES;
+    
+    self.parseQueue = [NSOperationQueue new];
+}
+
 
 - (void)dealloc{
 

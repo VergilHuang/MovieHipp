@@ -16,6 +16,7 @@ static NSString *MovieFeedUrlStr = @"https://tw.movies.yahoo.com/rss/tpeboxoffic
 @interface RankViewController : UITableViewController
 
 - (void)handleError:(NSError *)error;
+
 @property (nonatomic,strong) UISearchController *searchController;
 
 @end

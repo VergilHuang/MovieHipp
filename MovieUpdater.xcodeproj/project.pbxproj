@@ -11,8 +11,6 @@
 		44998DE31A70E9DE00849905 /* NewMovieTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 44998DE21A70E9DE00849905 /* NewMovieTableViewCell.m */; };
 		44998F281A7B757E00849905 /* ParseNewOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 44998F271A7B757E00849905 /* ParseNewOperation.m */; };
 		44998F2F1A7E409C00849905 /* TabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 44998F2E1A7E409C00849905 /* TabBarController.m */; };
-		44B596CC1A829FF700814BB8 /* launch.png in Resources */ = {isa = PBXBuildFile; fileRef = 44B596CA1A829FF700814BB8 /* launch.png */; };
-		44B596CD1A829FF700814BB8 /* launch@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 44B596CB1A829FF700814BB8 /* launch@2x.png */; };
 		44BDBF9D1A5EDB1E00EEEE61 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 44BDBF9C1A5EDB1E00EEEE61 /* main.m */; };
 		44BDBFA01A5EDB1E00EEEE61 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 44BDBF9F1A5EDB1E00EEEE61 /* AppDelegate.m */; };
 		44BDBFA31A5EDB1E00EEEE61 /* RankViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 44BDBFA21A5EDB1E00EEEE61 /* RankViewController.m */; };
@@ -26,6 +24,7 @@
 		44BDBFCA1A5FC3A600EEEE61 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44BDBFC91A5FC3A600EEEE61 /* CFNetwork.framework */; };
 		44BDC00E1A66206B00EEEE61 /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 44BDC00D1A66206B00EEEE61 /* WebViewController.m */; };
 		44BDC04A1A6902D500EEEE61 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44BDC0491A6902D500EEEE61 /* Social.framework */; };
+		44E4728F1A83C8D3005110E2 /* launchv2.png in Resources */ = {isa = PBXBuildFile; fileRef = 44E4728E1A83C8D3005110E2 /* launchv2.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,8 +47,6 @@
 		44998F2D1A7E409C00849905 /* TabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TabBarController.h; path = ../TabBarController.h; sourceTree = "<group>"; };
 		44998F2E1A7E409C00849905 /* TabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TabBarController.m; path = ../TabBarController.m; sourceTree = "<group>"; };
 		44B596C81A829BA000814BB8 /* 主頁-250dpi.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "主頁-250dpi.jpg"; path = "../../../Desktop/主頁-250dpi.jpg"; sourceTree = "<group>"; };
-		44B596CA1A829FF700814BB8 /* launch.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = launch.png; sourceTree = "<group>"; };
-		44B596CB1A829FF700814BB8 /* launch@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "launch@2x.png"; sourceTree = "<group>"; };
 		44BDBF971A5EDB1E00EEEE61 /* MovieUpdater.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MovieUpdater.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		44BDBF9B1A5EDB1E00EEEE61 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		44BDBF9C1A5EDB1E00EEEE61 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -75,6 +72,7 @@
 		44BDC00C1A66206B00EEEE61 /* WebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; name = WebViewController.h; path = ../WebViewController.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		44BDC00D1A66206B00EEEE61 /* WebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = WebViewController.m; path = ../WebViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		44BDC0491A6902D500EEEE61 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
+		44E4728E1A83C8D3005110E2 /* launchv2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = launchv2.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,8 +118,7 @@
 				44BDBFA21A5EDB1E00EEEE61 /* RankViewController.m */,
 				44BDBFC31A5EDB8300EEEE61 /* MovieTableViewCell.h */,
 				44BDBFC41A5EDB8300EEEE61 /* MovieTableViewCell.m */,
-				44B596CA1A829FF700814BB8 /* launch.png */,
-				44B596CB1A829FF700814BB8 /* launch@2x.png */,
+				44E4728E1A83C8D3005110E2 /* launchv2.png */,
 			);
 			name = RankingMovie;
 			sourceTree = "<group>";
@@ -277,9 +274,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				44BDBFA61A5EDB1E00EEEE61 /* Main.storyboard in Resources */,
-				44B596CC1A829FF700814BB8 /* launch.png in Resources */,
+				44E4728F1A83C8D3005110E2 /* launchv2.png in Resources */,
 				44BDBFAB1A5EDB1E00EEEE61 /* LaunchScreen.xib in Resources */,
-				44B596CD1A829FF700814BB8 /* launch@2x.png in Resources */,
 				44BDBFA81A5EDB1E00EEEE61 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

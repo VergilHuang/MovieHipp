@@ -11,9 +11,9 @@
 #import "NewMovieTableViewController.h"
 #import "ParseOperation.h"
 
+
 @interface AppDelegate ()
 
-@property (nonatomic,strong) NSOperationQueue *parseQueue;
 @property (nonatomic,strong) RankViewController *rank;
 
 @end
@@ -22,49 +22,12 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    
-    RankViewController *rankViewController = [[RankViewController alloc] init];
-        
-    //rankingMovieList request
-    NSURLRequest *MovieUrlRequest = [NSURLRequest requestWithURL:[NSURL URLWithString:MovieFeedUrlStr]];
-    
-    //send request to web server
-    [NSURLConnection sendAsynchronousRequest:MovieUrlRequest queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
-        
-        [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
-        
-        //if connectionError encounted
-        if (connectionError != nil) {
-            
-            [rankViewController handleError:connectionError];
-            
-        }else{
-            
-            NSHTTPURLResponse *HTTPURLResponse = (NSHTTPURLResponse *)response;
-            if (([HTTPURLResponse statusCode]/100) == 2 && [[response MIMEType] isEqualToString:@"application/rss+xml"]) {
-                ParseOperation *parseOperation =[[ParseOperation alloc] initWithData:data];
-                
-                [self.parseQueue addOperation:parseOperation];
-            }else{
-                NSString *errorStr = NSLocalizedString(@"HTTP Error", @"HTTP 錯誤訊息");
-                NSDictionary *userInfoDir = @{NSLocalizedDescriptionKey : errorStr};
-                NSError *reportError = [NSError errorWithDomain:errorStr code:[HTTPURLResponse statusCode] userInfo:userInfoDir];
-                
-                [rankViewController handleError:reportError];
-            }
-        }
-    }];
-    
-    [UIApplication sharedApplication].networkActivityIndicatorVisible=YES;
-    
-    self.parseQueue = [NSOperationQueue new];
-    // 需要增加觀察者在下面
 
-    sleep(0);
+    //send request to web server
+    sleep(1);
     
     return YES;
 }
-
 
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
